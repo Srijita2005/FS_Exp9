@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SocialSphere — Social Media Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="app-bg"></div>
+<nav class="navbar">
+  <a href="/" class="nav-brand"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg><span>SocialSphere</span></a>
+  <div id="nav-area"></div>
+</nav>
+<main class="container">
+  <!-- AUTH -->
+  <div id="v-auth" class="view">
+    <div class="auth-card">
+      <h2 id="a-title">Sign In</h2>
+      <p class="auth-sub" id="a-sub">Welcome back!</p>
+      <form id="a-form">
+        <div class="fg" id="fg-user" style="display:none"><label>Username</label><input id="a-user" placeholder="johndoe"/></div>
+        <div class="fg"><label>Email</label><input id="a-email" type="email" placeholder="you@mail.com"/></div>
+        <div class="fg"><label>Password</label><input id="a-pass" type="password" placeholder="••••••"/></div>
+        <button type="submit" class="btn btn-p full" id="a-btn">Sign In</button>
+      </form>
+      <p class="auth-sw"><span id="a-sw-t">No account?</span> <a href="#" id="a-sw-l">Sign Up</a></p>
+    </div>
+  </div>
+  <!-- FEED -->
+  <div id="v-feed" class="view" style="display:none">
+    <div id="create-box" style="display:none">
+      <div class="create-card">
+        <div class="create-top"><div class="av av-sm" id="create-av"></div><textarea id="create-input" placeholder="What's on your mind?" rows="2"></textarea></div>
+        <div id="img-preview" class="img-preview" style="display:none"><img id="img-prev-el"/><button class="img-rm" onclick="removeImage()">×</button></div>
+        <div class="create-bottom">
+          <label class="btn btn-g btn-sm img-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> Photo<input type="file" id="img-input" accept="image/*" hidden/></label>
+          <button class="btn btn-p btn-sm" onclick="createPost()">Post</button>
+        </div>
+      </div>
+    </div>
+    <div id="feed-list"></div>
+    <div id="feed-empty" class="empty" style="display:none"><p>No posts yet. Share something!</p></div>
+    <div id="feed-load" class="load"><div class="spinner"></div></div>
+  </div>
+  <!-- POST DETAIL -->
+  <div id="v-post" class="view" style="display:none">
+    <button class="btn btn-g btn-sm" onclick="showV('feed')" style="margin-bottom:16px">← Back</button>
+    <div id="post-detail"></div>
+    <div id="post-comments"></div>
+  </div>
+</main>
+<div class="toast-box" id="toast-box"></div>
+<script src="app.js"></script>
+</body>
+</html>
